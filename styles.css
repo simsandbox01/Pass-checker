@@ -207,9 +207,6 @@ button { font: inherit; color: inherit; }
 .permit-status.is-valid { color: var(--valid); }
 .permit-status.is-invalid { color: var(--invalid); }
 
-.permit-till { padding-top: 2px; font-size: 15px; line-height: 22px; color: var(--ink-muted); }
-.permit-till strong { font-weight: 600; color: var(--ink); }
-
 .validity-toggle {
   display: flex;
   align-items: center;

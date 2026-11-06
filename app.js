@@ -188,15 +188,11 @@ function renderHome() {
 }
 
 function renderPermit(permit, index) {
-  const period = currentPeriod(permit);
-  const valid = Boolean(period);
+  const valid = Boolean(currentPeriod(permit));
   const open = state.openPermits.has(index);
   const status = valid
     ? `<span class="permit-status is-valid">${TICK_BADGE}Valid</span>`
     : `<span class="permit-status is-invalid">${CROSS_BADGE}Invalid</span>`;
-  const till = valid
-    ? `<p class="permit-till">Till <strong>${formatDate(period[1])}</strong></p>`
-    : "";
   const periods = open
     ? `<div class="validity-list">${permit.periods
         .map(([from, to]) => `<span>${formatDate(from)} - ${formatDate(to)}</span>`)
@@ -212,7 +208,6 @@ function renderPermit(permit, index) {
           <p class="permit-number">${permit.number}</p>
           ${status}
         </div>
-        ${till}
         <button type="button" class="validity-toggle" data-toggle-permit="${index}" aria-expanded="${open}">
           <span>Validity</span>
           ${svg(20, 'stroke-width="2"', '<path d="M6 9l6 6 6-6"></path>')}
